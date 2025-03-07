@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>iPhone & Nike Popups</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style2.css">
+    <!-- <link rel="stylesheet" href="style1.css"> -->
+</head>
+
+<body>
+
+    <h1>Welcome to Our Store!</h1>
+
+    <div id="popup" class="iphone-popup-overlay">
+        <div class="iphone-popup-content">
+            <span class="close-btn" onclick="closePopup()">×</span>
+            <h1 class="popup-heading">ESSENTIAL</h1>
+            <p class="popup-subheading">Wait before you go...</p>
+            <h2 class="popup-title">Popular finds we think you'll love!!</h2>
+
+            <div class="iphone-container">
+
+                <div class="iphone-item">
+                    <img src="image1.webp" alt="iPhone 14">
+                    <p class="iphone-name">iPhone 14</p>
+                    <div class="price-info">
+                        <p class="discount">-22% OFF</p>
+                        <p class="new-price">₹61,999</p>
+                        <p class="old-price">M.R.P.: <span>₹79,900</span></p>
+                    </div>
+                </div>
+
+                <div class="iphone-item">
+                    <img src="image2.jpg" alt="iPhone 15">
+                    <p class="iphone-name">iPhone 15</p>
+                    <div class="price-info">
+                        <p class="discount">-15% OFF</p>
+                        <p class="new-price">₹72,999</p>
+                        <p class="old-price">M.R.P.: <span>₹85,000</span></p>
+                    </div>
+                </div>
+
+                <div class="iphone-item">
+                    <img src="image3.jpg" alt="iPhone 16">
+                    <p class="iphone-name">iPhone 16</p>
+                    <div class="price-info">
+                        <p class="discount">-18% OFF</p>
+                        <p class="new-price">₹88,999</p>
+                        <p class="old-price">M.R.P.: <span>₹1,08,000</span></p>
+                    </div>
+                </div>
+            </div>
+
+            <button onclick="trackClick()">Shop Now</button>
+        </div>
+    </div>
+
+
+    <div class="nike-popup-overlay" id="nikePopup">
+        <div class="nike-popup-content">
+            <span class="close-btn" onclick="closeNikePopup()">×</span>
+            <img src="imagenike.png" alt="Nike Shoes" class="popup-image">
+            <h2>Nike Air Force 1</h2>
+            <p>Step into legendary style and comfort with the iconic Nike Air Force 1.</p>
+            <button class="shop-now-btn" onclick="window.location.href='https://www.nike.com'">Shop Now</button>
+        </div>
+    </div>
+    <!-- <div id="popuphp">
+        <div class="popup-content">
+            <span class="close-btn" onclick="closehpPopup()">×</span>
+            <img src="https://ssl-product-images.www8-hp.com/digmedialib/prodimg/lowres/c06659305.png" alt="HP Laptop">
+            <h2>Exclusive Deal on HP Laptop</h2>
+            <p>Power and performance in a sleek design.</p>
+            <button onclick="trackClick()">Shop Now</button>
+        </div>
+    </div> -->
+
+    <script>
+        function showPopup() {
+            const popup = document.getElementById('popup');
+            popup.style.display = 'flex';
+            setTimeout(() => popup.classList.add('show'), 50);
+        }
+
+        function closePopup() {
+            const popup = document.getElementById('popup');
+            popup.classList.remove('show');
+            setTimeout(() => popup.style.display = 'none', 300);
+        }
+
+        function trackClick() {
+            window.location.href = "https://www.apple.com/in/";
+        }
+
+        setTimeout(showPopup, 5000);
+
+        function showNikePopup() {
+            const nikePopup = document.getElementById('nikePopup');
+            nikePopup.classList.add('show');
+        }
+
+        function closeNikePopup() {
+            const nikePopup = document.getElementById('nikePopup');
+            nikePopup.classList.remove('show');
+            setTimeout(() => nikePopup.style.visibility = 'hidden', 600);
+        }
+
+        window.onload = function () {
+            const img = new Image();
+            img.src = 'imagenike.png';
+            img.onload = function () {
+                setTimeout(showNikePopup, 10000);
+            };
+        };
+    </script>
+    <!-- <script>
+        // HP Popup
+        function showHpPopup() {
+            document.getElementById('popuphp').style.display = 'flex';
+            incrementHpPopupCount();
+        }
+        function closehpPopup() {
+            document.getElementById('popuphp').style.display = 'none'
+                .catch(err => console.error('Error:', err));
+            window.open('https://www.hp.com', '_blank');
+        }
+        setTimeout(showHpPopup, 15000);  // 15 seconds
+    </script> -->
+
+
+
+</body>
+
+</html>
